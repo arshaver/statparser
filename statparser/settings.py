@@ -1,5 +1,5 @@
 # Django settings for statparser project.
-import secrets
+
 import os
 SITE_ROOT = os.path.dirname(os.path.realpath(__file__))
 
@@ -84,7 +84,7 @@ STATICFILES_FINDERS = (
 )
 
 # Make this unique, and don't share it with anybody.
-SECRET_KEY = secrets.SECRET_KEY
+SECRET_KEY = os.environ['SECRET_KEY']
 
 # List of callables that know how to import templates from various sources.
 TEMPLATE_LOADERS = (
