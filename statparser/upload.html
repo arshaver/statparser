@@ -1,0 +1,18 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01//EN">
+<html>
+	<head>
+		<title></title>
+		<style type="text/css" media="screen">
+			ul.errorlist {
+				list-style:none;
+				color: red;
+			}
+		</style>
+	</head>
+	<body>
+		<h2>Intervention Statistics Parser</h2>
+		<form enctype="multipart/form-data" action="/" method="post">{% csrf_token %}
+		{{ form.as_p }}
+		<input type="submit" value="Submit" />
+	</body>
+</html>
