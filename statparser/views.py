@@ -42,10 +42,11 @@ def main(request):
 	if request.method == 'POST':
 		form = UploadFileForm(request.POST, request.FILES)
 		if form.is_valid():
+			file_name = request.FILES['file'].name.split(".")[0]
 			data = parse_stats(request.FILES['file'])
 			
 			response = HttpResponse(mimetype='text/csv')
-			response['Content-Disposition'] = 'attachment; filename=stats.csv'
+			response['Content-Disposition'] = 'attachment; filename=%s parsed.csv' %file_name
 
 			writer = csv.writer(response)
 			

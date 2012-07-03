@@ -8,12 +8,23 @@
 				list-style-position: inside;
 				color: red;
 			}
+			#main {
+				width:400px;
+				padding: 15px 50px;
+				margin:0 auto;
+				border:solid black 2px;
+			}
+			input#id_file {
+				width:80%;
+			}
 		</style>
 	</head>
 	<body>
-		<h2>Intervention Statistics Parser</h2>
-		<form enctype="multipart/form-data" action="/" method="post">{% csrf_token %}
-		{{ form.as_p }}
-		<input type="submit" value="Submit" />
+		<div id="main">
+			<h2>Intervention Statistics Parser</h2>
+			<form enctype="multipart/form-data" action="/" method="post">{% csrf_token %}
+			{{ form.as_p }}
+			<input type="submit" value="Submit" />
+		</div>
 	</body>
 </html>
