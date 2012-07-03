@@ -5,6 +5,7 @@ from statparser.forms import UploadFileForm
 from django.shortcuts import render
 
 INTERVENTIONS = ["ABX","AMINO","ANTICOAG","CARBA","CODE","DIGOXIN","DRUGS","ELECTROLYT","INSULIN","LITHIUM","MISC","PAIN","PHENOBARB","PHENYTOIN","PRADAXA","SENTOUT","THEOPHYL","TPN","VALPROIC","VANCO","WARFARIN","OTHER"]
+NEW_INTERVENTIONS = ["AMINOG", "ANTICOAG", "CARBA", "CODE", "DIGOXIN", "DRUGS", "ELECTROLYT", "FOLLOWUP", "INSULIN", "LITHIUM", "MONITOR", "PAIN", "PHENOBARB", "PRADAXA", "REGIONAL", "RIVAROXABA", "SENTOUT", "THEOPHYL", "TPN", "VALPROIC", "VANCO", "WARFARIN", "WEIGHT"]
 
 def parse_stats(file):
 	lines = file.readlines()
@@ -37,7 +38,6 @@ def parse_stats(file):
 	
 	return data
 	
-	
 def main(request):
 	if request.method == 'POST':
 		form = UploadFileForm(request.POST, request.FILES)
@@ -64,15 +64,3 @@ def main(request):
 	else:
 		form = UploadFileForm()
 	return render(request, 'upload.html', {'form': form})
-
-
-	
-	# # Create the HttpResponse object with the appropriate CSV header.
-	#	  response = HttpResponse(mimetype='text/csv')
-	#	  response['Content-Disposition'] = 'attachment; filename=somefilename.csv'
-	# 
-	#	  writer = csv.writer(response)
-	#	  writer.writerow(['First row', 'Foo', 'Bar', 'Baz'])
-	#	  writer.writerow(['Second row', 'A', 'B', 'C', '"Testing"', "Here's a quote"])
-	# 
-	#	  return response

@@ -3,6 +3,9 @@
 	<head>
 		<title></title>
 		<style type="text/css" media="screen">
+			body {
+				font-family: sans-serif;
+			}
 			ul.errorlist {
 				list-style:none;
 				list-style-position: inside;
@@ -17,6 +20,9 @@
 			input#id_file {
 				width:80%;
 			}
+			div#footer {
+				font-size: 12px;
+			}
 		</style>
 	</head>
 	<body>
@@ -25,6 +31,10 @@
 			<form enctype="multipart/form-data" action="/" method="post">{% csrf_token %}
 			{{ form.as_p }}
 			<input type="submit" value="Submit" />
+			<div id="footer">
+				<p><a href="https://github.com/arshaver/statparser" target="_">View source</a></p>
+				<p><a href="mailto:ashaver@highlinemedical.org" target="_">Contact</a></p>
+			</div>
 		</div>
 	</body>
 </html>
