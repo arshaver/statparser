@@ -45,7 +45,7 @@ def main(request):
 			data = parse_stats(request.FILES['file'])
 			
 			response = HttpResponse(mimetype='text/csv')
-			response['Content-Disposition'] = 'attachment; filename=somefilename.csv'
+			response['Content-Disposition'] = 'attachment; filename=stats.csv'
 
 			writer = csv.writer(response)
 			
