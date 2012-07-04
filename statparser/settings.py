@@ -99,6 +99,7 @@ MIDDLEWARE_CLASSES = (
     'django.middleware.csrf.CsrfViewMiddleware',
     'django.contrib.auth.middleware.AuthenticationMiddleware',
     'django.contrib.messages.middleware.MessageMiddleware',
+	'statparser.authorization_middleware.BasicAuthenticationMiddleware',
     # Uncomment the next line for simple clickjacking protection:
     # 'django.middleware.clickjacking.XFrameOptionsMiddleware',
 )
@@ -156,3 +157,7 @@ LOGGING = {
         },
     }
 }
+
+BASIC_WWW_AUTHENTICATION_USERNAME = os.environ['BASIC_WWW_AUTHENTICATION_USERNAME']
+BASIC_WWW_AUTHENTICATION_PASSWORD = os.environ['BASIC_WWW_AUTHENTICATION_PASSWORD']
+BASIC_WWW_AUTHENTICATION = True
